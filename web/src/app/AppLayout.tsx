@@ -22,6 +22,8 @@ const ASHAModule = lazy(() => import('@/modules/ASHAModule'));
 const MahaKumbhModule = lazy(() => import('@/modules/MahaKumbhModule'));
 const MyHealthModule = lazy(() => import('@/modules/MyHealthModule'));
 const MedicalServicesModule = lazy(() => import('@/modules/MedicalServicesModule'));
+const SelfExplanationModule = lazy(() => import('@/modules/SelfExplanationModule'));
+const SettingsModule = lazy(() => import('@/modules/SettingsModule'));
 
 const ModuleSkeleton = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
@@ -57,7 +59,8 @@ const moduleMap: Record<string, React.ReactNode> = {
   emergency: <EmergencyModule />,
   abha: <ABHAModule />,
   asha: <ASHAModule />,
-  settings: <ComingSoon title="Settings" emoji="⚙️" />,
+  explain: <SelfExplanationModule />,
+  settings: <SettingsModule />,
 };
 
 /* ── Mobile bottom nav items (5 primary) ── */

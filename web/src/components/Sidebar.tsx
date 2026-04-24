@@ -5,13 +5,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useAppStore } from '@/store/appStore';
 import {
   Info, LayoutDashboard, Heart, Shield, MapPin, AlertTriangle,
-  CreditCard, Users, Settings, PanelLeftClose, Activity, Stethoscope,
+  CreditCard, Users, Settings, PanelLeftClose, Activity, Stethoscope, Brain,
 } from 'lucide-react';
 
 export const navItems = [
   { id: 'about', label: 'About Us', icon: Info },
   { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { id: 'health', label: 'My Health', icon: Heart },
+  { id: 'explain', label: 'Explain Amrit Sparsh', icon: Brain, isNew: true, isPremium: true },
   { id: 'mdr', label: 'MDR Command', icon: Shield },
   { id: 'mahakumbh', label: 'MahaKumbh Version', icon: MapPin },
   { id: 'emergency', label: 'Emergency SOS', icon: AlertTriangle },
@@ -167,6 +168,35 @@ export default function Sidebar() {
                   }}>
                     SOS
                   </span>
+                )}
+
+                {/* NEW + AI Badge for Self Explanation */}
+                {item.id === 'explain' && !sidebarCollapsed && (
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+                    style={{
+                      marginLeft: 'auto', display: 'flex', gap: 6, alignItems: 'center',
+                    }}
+                  >
+                    <span style={{
+                      background: 'linear-gradient(135deg, #7c3aed, #ec4899)',
+                      color: '#fff', borderRadius: 999, padding: '2px 8px',
+                      fontSize: 8, fontWeight: 900, textTransform: 'uppercase',
+                      letterSpacing: '0.05em',
+                    }}>
+                      AI
+                    </span>
+                    <span style={{
+                      background: 'linear-gradient(135deg, #10b981, #06b6d4)',
+                      color: '#fff', borderRadius: 999, padding: '2px 8px',
+                      fontSize: 8, fontWeight: 900, textTransform: 'uppercase',
+                      letterSpacing: '0.05em',
+                    }}>
+                      NEW
+                    </span>
+                  </motion.div>
                 )}
               </motion.button>
             </motion.div>
